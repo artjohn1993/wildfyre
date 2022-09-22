@@ -1,0 +1,259 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.generator.wildfyre"
+4    android:versionCode="1"
+5    android:versionName="1.10" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="30" />
+10
+11    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
+11-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:17:5-19:60
+11-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:18:9-63
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:6:5-67
+12-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:6:22-64
+13    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+13-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:7:5-80
+13-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:7:22-77
+14    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+14-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:8:5-81
+14-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:8:22-78
+15    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+15-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:9:5-81
+15-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:9:22-78
+16    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+16-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:10:5-79
+16-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:10:22-76
+17    <uses-permission android:name="android.permission.DELETE_CACHE_FILES" />
+17-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:11:5-13:47
+17-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:12:9-61
+18    <uses-permission android:name="android.permission.CLEAR_APP_CACHE" /> <!-- Include required permissions for Google Maps API to run. -->
+18-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:14:5-16:47
+18-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:15:9-58
+19    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+19-->[com.google.android.gms:play-services-maps:16.0.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/f7b2eb8aaf5e072ef3e8b7ea8258d115/jetified-play-services-maps-16.0.0/AndroidManifest.xml:23:5-79
+19-->[com.google.android.gms:play-services-maps:16.0.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/f7b2eb8aaf5e072ef3e8b7ea8258d115/jetified-play-services-maps-16.0.0/AndroidManifest.xml:23:22-76
+20
+21    <uses-feature
+21-->[com.google.android.gms:play-services-maps:16.0.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/f7b2eb8aaf5e072ef3e8b7ea8258d115/jetified-play-services-maps-16.0.0/AndroidManifest.xml:26:5-28:35
+22        android:glEsVersion="0x00020000"
+22-->[com.google.android.gms:play-services-maps:16.0.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/f7b2eb8aaf5e072ef3e8b7ea8258d115/jetified-play-services-maps-16.0.0/AndroidManifest.xml:27:9-41
+23        android:required="true" />
+23-->[com.google.android.gms:play-services-maps:16.0.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/f7b2eb8aaf5e072ef3e8b7ea8258d115/jetified-play-services-maps-16.0.0/AndroidManifest.xml:28:9-32
+24
+25    <uses-permission android:name="android.permission.WAKE_LOCK" />
+25-->[com.google.android.gms:play-services-measurement-api:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/6991e3361642e1176b97441db1a8d05d/jetified-play-services-measurement-api-18.0.2/AndroidManifest.xml:24:5-68
+25-->[com.google.android.gms:play-services-measurement-api:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/6991e3361642e1176b97441db1a8d05d/jetified-play-services-measurement-api-18.0.2/AndroidManifest.xml:24:22-65
+26    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+26-->[com.google.android.gms:play-services-measurement:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/eabe6a63dfe7fe67021c77f9fead0f0f/jetified-play-services-measurement-18.0.2/AndroidManifest.xml:26:5-110
+26-->[com.google.android.gms:play-services-measurement:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/eabe6a63dfe7fe67021c77f9fead0f0f/jetified-play-services-measurement-18.0.2/AndroidManifest.xml:26:22-107
+27
+28    <application
+28-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:21:5-49:19
+29        android:allowBackup="true"
+29-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:22:9-35
+30        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+30-->[androidx.core:core:1.2.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/ed0b7ddd5cdc90570065321e8153e27f/core-1.2.0/AndroidManifest.xml:24:18-86
+31        android:debuggable="true"
+32        android:hardwareAccelerated="true"
+32-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:23:9-43
+33        android:icon="@mipmap/ic_logo"
+33-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:24:9-39
+34        android:label="@string/app_name"
+34-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:25:9-41
+35        android:requestLegacyExternalStorage="true"
+35-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:26:9-52
+36        android:roundIcon="@mipmap/ic_logo"
+36-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:27:9-44
+37        android:supportsRtl="true"
+37-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:28:9-35
+38        android:theme="@style/Theme.WebOpener"
+38-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:29:9-47
+39        android:usesCleartextTraffic="true" >
+39-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:30:9-44
+40        <activity
+40-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:31:9-33:40
+41            android:name="com.generator.wildfyre.activity.WordpressLoaderActivity"
+41-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:32:13-61
+42            android:exported="false" />
+42-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:33:13-37
+43        <activity
+43-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:34:9-42:20
+44            android:name="com.generator.wildfyre.activity.SplashScreenActivity"
+44-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:35:13-58
+45            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" >
+45-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:36:13-72
+46            <intent-filter>
+46-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:37:13-41:29
+47                <action android:name="android.intent.action.MAIN" />
+47-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:38:17-69
+47-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:38:25-66
+48
+49                <category android:name="android.intent.category.LAUNCHER" />
+49-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:40:17-77
+49-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:40:27-74
+50            </intent-filter>
+51        </activity>
+52
+53        <meta-data
+53-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:44:9-46:37
+54            android:name="android.webkit.WebView.EnableSafeBrowsing"
+54-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:45:13-69
+55            android:value="false" />
+55-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:46:13-34
+56
+57        <activity android:name="com.generator.wildfyre.activity.MainActivity" />
+57-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:47:9-59
+57-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:47:19-56
+58
+59        <service android:name="com.generator.pog.services.IdleChecker" />
+59-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:48:9-73
+59-->/Users/tadashi/Documents/Android/WildFyre 2/app/src/main/AndroidManifest.xml:48:18-71
+60        <service
+60-->[com.google.firebase:firebase-crashlytics-ktx:17.3.1] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/1d4e7e84658604e8b3caea7be45bb898/jetified-firebase-crashlytics-ktx-17.3.1/AndroidManifest.xml:24:9-30:19
+61            android:name="com.google.firebase.components.ComponentDiscoveryService"
+61-->[com.google.firebase:firebase-crashlytics-ktx:17.3.1] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/1d4e7e84658604e8b3caea7be45bb898/jetified-firebase-crashlytics-ktx-17.3.1/AndroidManifest.xml:25:13-84
+62            android:directBootAware="true"
+62-->[com.google.firebase:firebase-common:19.5.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/2d98d298085888fea8498d1511697e27/jetified-firebase-common-19.5.0/AndroidManifest.xml:35:13-43
+63            android:exported="false" >
+63-->[com.google.firebase:firebase-crashlytics-ktx:17.3.1] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/1d4e7e84658604e8b3caea7be45bb898/jetified-firebase-crashlytics-ktx-17.3.1/AndroidManifest.xml:26:13-37
+64            <meta-data
+64-->[com.google.firebase:firebase-crashlytics-ktx:17.3.1] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/1d4e7e84658604e8b3caea7be45bb898/jetified-firebase-crashlytics-ktx-17.3.1/AndroidManifest.xml:27:13-29:85
+65                android:name="com.google.firebase.components:com.google.firebase.crashlytics.ktx.FirebaseCrashlyticsKtxRegistrar"
+65-->[com.google.firebase:firebase-crashlytics-ktx:17.3.1] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/1d4e7e84658604e8b3caea7be45bb898/jetified-firebase-crashlytics-ktx-17.3.1/AndroidManifest.xml:28:17-130
+66                android:value="com.google.firebase.components.ComponentRegistrar" />
+66-->[com.google.firebase:firebase-crashlytics-ktx:17.3.1] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/1d4e7e84658604e8b3caea7be45bb898/jetified-firebase-crashlytics-ktx-17.3.1/AndroidManifest.xml:29:17-82
+67            <meta-data
+67-->[com.google.firebase:firebase-analytics-ktx:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/4b73c191527fc9729903fc5b2979ae21/jetified-firebase-analytics-ktx-18.0.2/AndroidManifest.xml:11:13-13:85
+68                android:name="com.google.firebase.components:com.google.firebase.analytics.ktx.FirebaseAnalyticsKtxRegistrar"
+68-->[com.google.firebase:firebase-analytics-ktx:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/4b73c191527fc9729903fc5b2979ae21/jetified-firebase-analytics-ktx-18.0.2/AndroidManifest.xml:12:17-126
+69                android:value="com.google.firebase.components.ComponentRegistrar" />
+69-->[com.google.firebase:firebase-analytics-ktx:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/4b73c191527fc9729903fc5b2979ae21/jetified-firebase-analytics-ktx-18.0.2/AndroidManifest.xml:13:17-82
+70            <meta-data
+70-->[com.google.firebase:firebase-common-ktx:19.5.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/033d0ed3954a3b4c1f3ea9436285d510/jetified-firebase-common-ktx-19.5.0/AndroidManifest.xml:15:13-17:85
+71                android:name="com.google.firebase.components:com.google.firebase.ktx.FirebaseCommonKtxRegistrar"
+71-->[com.google.firebase:firebase-common-ktx:19.5.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/033d0ed3954a3b4c1f3ea9436285d510/jetified-firebase-common-ktx-19.5.0/AndroidManifest.xml:16:17-113
+72                android:value="com.google.firebase.components.ComponentRegistrar" />
+72-->[com.google.firebase:firebase-common-ktx:19.5.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/033d0ed3954a3b4c1f3ea9436285d510/jetified-firebase-common-ktx-19.5.0/AndroidManifest.xml:17:17-82
+73            <meta-data
+73-->[com.google.firebase:firebase-crashlytics:17.3.1] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/d5f8b88eb85553af2360bedd14e6393d/jetified-firebase-crashlytics-17.3.1/AndroidManifest.xml:18:13-20:85
+74                android:name="com.google.firebase.components:com.google.firebase.crashlytics.CrashlyticsRegistrar"
+74-->[com.google.firebase:firebase-crashlytics:17.3.1] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/d5f8b88eb85553af2360bedd14e6393d/jetified-firebase-crashlytics-17.3.1/AndroidManifest.xml:19:17-115
+75                android:value="com.google.firebase.components.ComponentRegistrar" />
+75-->[com.google.firebase:firebase-crashlytics:17.3.1] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/d5f8b88eb85553af2360bedd14e6393d/jetified-firebase-crashlytics-17.3.1/AndroidManifest.xml:20:17-82
+76            <meta-data
+76-->[com.google.android.gms:play-services-measurement-api:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/6991e3361642e1176b97441db1a8d05d/jetified-play-services-measurement-api-18.0.2/AndroidManifest.xml:30:13-32:85
+77                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+77-->[com.google.android.gms:play-services-measurement-api:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/6991e3361642e1176b97441db1a8d05d/jetified-play-services-measurement-api-18.0.2/AndroidManifest.xml:31:17-139
+78                android:value="com.google.firebase.components.ComponentRegistrar" />
+78-->[com.google.android.gms:play-services-measurement-api:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/6991e3361642e1176b97441db1a8d05d/jetified-play-services-measurement-api-18.0.2/AndroidManifest.xml:32:17-82
+79            <meta-data
+79-->[com.google.firebase:firebase-installations:16.3.5] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/3ca69a611551555e4a9848b67f17931c/jetified-firebase-installations-16.3.5/AndroidManifest.xml:18:13-20:85
+80                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+80-->[com.google.firebase:firebase-installations:16.3.5] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/3ca69a611551555e4a9848b67f17931c/jetified-firebase-installations-16.3.5/AndroidManifest.xml:19:17-127
+81                android:value="com.google.firebase.components.ComponentRegistrar" />
+81-->[com.google.firebase:firebase-installations:16.3.5] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/3ca69a611551555e4a9848b67f17931c/jetified-firebase-installations-16.3.5/AndroidManifest.xml:20:17-82
+82            <!--
+83                This registrar is not defined in the dynamic-module-support sdk itself to allow non-firebase
+84                clients to use it as well, by defining this registrar in their own core/common library.
+85            -->
+86            <meta-data
+86-->[com.google.firebase:firebase-common:19.5.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/2d98d298085888fea8498d1511697e27/jetified-firebase-common-19.5.0/AndroidManifest.xml:43:13-45:85
+87                android:name="com.google.firebase.components:com.google.firebase.dynamicloading.DynamicLoadingRegistrar"
+87-->[com.google.firebase:firebase-common:19.5.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/2d98d298085888fea8498d1511697e27/jetified-firebase-common-19.5.0/AndroidManifest.xml:44:17-121
+88                android:value="com.google.firebase.components.ComponentRegistrar" />
+88-->[com.google.firebase:firebase-common:19.5.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/2d98d298085888fea8498d1511697e27/jetified-firebase-common-19.5.0/AndroidManifest.xml:45:17-82
+89        </service>
+90
+91        <activity
+91-->[com.google.android.gms:play-services-base:16.0.1] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/4c321777385edb8e3ef4a292a927a72f/jetified-play-services-base-16.0.1/AndroidManifest.xml:23:9-26:75
+92            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+92-->[com.google.android.gms:play-services-base:16.0.1] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/4c321777385edb8e3ef4a292a927a72f/jetified-play-services-base-16.0.1/AndroidManifest.xml:24:13-79
+93            android:exported="false"
+93-->[com.google.android.gms:play-services-base:16.0.1] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/4c321777385edb8e3ef4a292a927a72f/jetified-play-services-base-16.0.1/AndroidManifest.xml:25:13-37
+94            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+94-->[com.google.android.gms:play-services-base:16.0.1] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/4c321777385edb8e3ef4a292a927a72f/jetified-play-services-base-16.0.1/AndroidManifest.xml:26:13-72
+95
+96        <provider
+96-->[com.google.firebase:firebase-common:19.5.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/2d98d298085888fea8498d1511697e27/jetified-firebase-common-19.5.0/AndroidManifest.xml:26:9-31:39
+97            android:name="com.google.firebase.provider.FirebaseInitProvider"
+97-->[com.google.firebase:firebase-common:19.5.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/2d98d298085888fea8498d1511697e27/jetified-firebase-common-19.5.0/AndroidManifest.xml:27:13-77
+98            android:authorities="com.generator.wildfyre.firebaseinitprovider"
+98-->[com.google.firebase:firebase-common:19.5.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/2d98d298085888fea8498d1511697e27/jetified-firebase-common-19.5.0/AndroidManifest.xml:28:13-72
+99            android:directBootAware="true"
+99-->[com.google.firebase:firebase-common:19.5.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/2d98d298085888fea8498d1511697e27/jetified-firebase-common-19.5.0/AndroidManifest.xml:29:13-43
+100            android:exported="false"
+100-->[com.google.firebase:firebase-common:19.5.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/2d98d298085888fea8498d1511697e27/jetified-firebase-common-19.5.0/AndroidManifest.xml:30:13-37
+101            android:initOrder="100" />
+101-->[com.google.firebase:firebase-common:19.5.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/2d98d298085888fea8498d1511697e27/jetified-firebase-common-19.5.0/AndroidManifest.xml:31:13-36
+102
+103        <receiver
+103-->[com.google.android.gms:play-services-measurement:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/eabe6a63dfe7fe67021c77f9fead0f0f/jetified-play-services-measurement-18.0.2/AndroidManifest.xml:29:9-33:20
+104            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+104-->[com.google.android.gms:play-services-measurement:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/eabe6a63dfe7fe67021c77f9fead0f0f/jetified-play-services-measurement-18.0.2/AndroidManifest.xml:30:13-85
+105            android:enabled="true"
+105-->[com.google.android.gms:play-services-measurement:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/eabe6a63dfe7fe67021c77f9fead0f0f/jetified-play-services-measurement-18.0.2/AndroidManifest.xml:31:13-35
+106            android:exported="false" >
+106-->[com.google.android.gms:play-services-measurement:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/eabe6a63dfe7fe67021c77f9fead0f0f/jetified-play-services-measurement-18.0.2/AndroidManifest.xml:32:13-37
+107        </receiver>
+108
+109        <service
+109-->[com.google.android.gms:play-services-measurement:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/eabe6a63dfe7fe67021c77f9fead0f0f/jetified-play-services-measurement-18.0.2/AndroidManifest.xml:35:9-38:40
+110            android:name="com.google.android.gms.measurement.AppMeasurementService"
+110-->[com.google.android.gms:play-services-measurement:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/eabe6a63dfe7fe67021c77f9fead0f0f/jetified-play-services-measurement-18.0.2/AndroidManifest.xml:36:13-84
+111            android:enabled="true"
+111-->[com.google.android.gms:play-services-measurement:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/eabe6a63dfe7fe67021c77f9fead0f0f/jetified-play-services-measurement-18.0.2/AndroidManifest.xml:37:13-35
+112            android:exported="false" />
+112-->[com.google.android.gms:play-services-measurement:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/eabe6a63dfe7fe67021c77f9fead0f0f/jetified-play-services-measurement-18.0.2/AndroidManifest.xml:38:13-37
+113        <service
+113-->[com.google.android.gms:play-services-measurement:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/eabe6a63dfe7fe67021c77f9fead0f0f/jetified-play-services-measurement-18.0.2/AndroidManifest.xml:39:9-43:72
+114            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+114-->[com.google.android.gms:play-services-measurement:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/eabe6a63dfe7fe67021c77f9fead0f0f/jetified-play-services-measurement-18.0.2/AndroidManifest.xml:40:13-87
+115            android:enabled="true"
+115-->[com.google.android.gms:play-services-measurement:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/eabe6a63dfe7fe67021c77f9fead0f0f/jetified-play-services-measurement-18.0.2/AndroidManifest.xml:41:13-35
+116            android:exported="false"
+116-->[com.google.android.gms:play-services-measurement:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/eabe6a63dfe7fe67021c77f9fead0f0f/jetified-play-services-measurement-18.0.2/AndroidManifest.xml:42:13-37
+117            android:permission="android.permission.BIND_JOB_SERVICE" />
+117-->[com.google.android.gms:play-services-measurement:18.0.2] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/eabe6a63dfe7fe67021c77f9fead0f0f/jetified-play-services-measurement-18.0.2/AndroidManifest.xml:43:13-69
+118
+119        <meta-data
+119-->[com.google.android.gms:play-services-basement:17.0.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/0e649696330d13c32850fa5f9b34bf79/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+120            android:name="com.google.android.gms.version"
+120-->[com.google.android.gms:play-services-basement:17.0.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/0e649696330d13c32850fa5f9b34bf79/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+121            android:value="@integer/google_play_services_version" />
+121-->[com.google.android.gms:play-services-basement:17.0.0] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/0e649696330d13c32850fa5f9b34bf79/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+122
+123        <service
+123-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/d5cb356d01809f9fd1ce72ddd7589f93/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:29:9-35:19
+124            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+124-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/d5cb356d01809f9fd1ce72ddd7589f93/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:30:13-103
+125            android:exported="false" >
+125-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/d5cb356d01809f9fd1ce72ddd7589f93/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:31:13-37
+126            <meta-data
+126-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/d5cb356d01809f9fd1ce72ddd7589f93/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:32:13-34:39
+127                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+127-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/d5cb356d01809f9fd1ce72ddd7589f93/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:33:17-94
+128                android:value="cct" />
+128-->[com.google.android.datatransport:transport-backend-cct:2.3.3] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/d5cb356d01809f9fd1ce72ddd7589f93/jetified-transport-backend-cct-2.3.3/AndroidManifest.xml:34:17-36
+129        </service>
+130        <service
+130-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/90be1d423867ffea8e9cab9dc9e563e2/jetified-transport-runtime-2.2.5/AndroidManifest.xml:26:9-30:19
+131            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+131-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/90be1d423867ffea8e9cab9dc9e563e2/jetified-transport-runtime-2.2.5/AndroidManifest.xml:27:13-117
+132            android:exported="false"
+132-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/90be1d423867ffea8e9cab9dc9e563e2/jetified-transport-runtime-2.2.5/AndroidManifest.xml:28:13-37
+133            android:permission="android.permission.BIND_JOB_SERVICE" >
+133-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/90be1d423867ffea8e9cab9dc9e563e2/jetified-transport-runtime-2.2.5/AndroidManifest.xml:29:13-69
+134        </service>
+135
+136        <receiver
+136-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/90be1d423867ffea8e9cab9dc9e563e2/jetified-transport-runtime-2.2.5/AndroidManifest.xml:32:9-34:40
+137            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+137-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/90be1d423867ffea8e9cab9dc9e563e2/jetified-transport-runtime-2.2.5/AndroidManifest.xml:33:13-132
+138            android:exported="false" />
+138-->[com.google.android.datatransport:transport-runtime:2.2.5] /Users/tadashi/.gradle/caches/transforms-2/files-2.1/90be1d423867ffea8e9cab9dc9e563e2/jetified-transport-runtime-2.2.5/AndroidManifest.xml:34:13-37
+139    </application>
+140
+141</manifest>

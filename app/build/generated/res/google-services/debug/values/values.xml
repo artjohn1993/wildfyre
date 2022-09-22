@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">771849814431-gil6v2ct43tfvhcqjvqqar4vlblhv7vu.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">771849814431</string>
+    <string name="google_api_key" translatable="false">AIzaSyASRkFiqqz02rMQvyenBalvdZregYI8gWg</string>
+    <string name="google_app_id" translatable="false">1:771849814431:android:3e7681edbd55d02d5abdaa</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyASRkFiqqz02rMQvyenBalvdZregYI8gWg</string>
+    <string name="google_storage_bucket" translatable="false">wildfyre-c01f8.appspot.com</string>
+    <string name="project_id" translatable="false">wildfyre-c01f8</string>
+</resources>
