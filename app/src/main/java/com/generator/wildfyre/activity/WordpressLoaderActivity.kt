@@ -42,7 +42,6 @@ class WordpressLoaderActivity : AppCompatActivity(), WordpressView {
     var wordpressLoadUrl: MutableList<Wordpress.Result> = ArrayList()
     var urlData: MutableList<URLData.Details> = ArrayList()
     var db = DatabaseHandler(this)
-    var factor = 0
     val calendar = CalendarData()
     val wordpressData = WordpressData()
     var page = 1
