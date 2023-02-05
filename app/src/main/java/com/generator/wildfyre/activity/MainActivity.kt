@@ -64,8 +64,8 @@ class MainActivity : AppCompatActivity(), GoogleSheetView {
             supportActionBar?.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM)
             supportActionBar?.setCustomView(R.layout.custom_action_bar)
             action_bar_title.setText("WILDFYRE Generator")
-            action_bar_subtitle.setText("v.20230109.1")
-            //WILDFYRE_20230109.1
+            action_bar_subtitle.setText("v.20230205.1")
+            //WILDFYRE_20230205.1
         } catch (e: PackageManager.NameNotFoundException) {
             e.printStackTrace()
         }
