@@ -64,8 +64,8 @@ class MainActivity : AppCompatActivity(), GoogleSheetView {
             supportActionBar?.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM)
             supportActionBar?.setCustomView(R.layout.custom_action_bar)
             action_bar_title.setText("WILDFYRE Generator")
-            action_bar_subtitle.setText("v.20230205.1")
-            //WILDFYRE_20230205.1
+            action_bar_subtitle.setText("v.20230301.1")
+            //WILDFYRE_20230301.1
         } catch (e: PackageManager.NameNotFoundException) {
             e.printStackTrace()
         }
@@ -174,7 +174,7 @@ class MainActivity : AppCompatActivity(), GoogleSheetView {
         presenter.getUrl("https://sheets.googleapis.com/v4/spreadsheets/${googleSheetID.text}/values/${googleSheetName.text}?dateTimeRenderOption=FORMATTED_STRING&majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&key=AIzaSyAdETbAw9fqHW5wCv5Hnipoc1kvGmCEfoA")
     }
 
-    private fun addURLEditText(url: String?,days: String = "", pages:String = "", pauseFrom:String ="", pauseTo:String = "" ) {
+    private fun addURLEditText(url: String?, pages:String = "") {
         addURL.text = "add URL (${++total})"
         var editText = EditText(this)
         var horizontalCon = LinearLayout(this)
@@ -191,10 +191,7 @@ class MainActivity : AppCompatActivity(), GoogleSheetView {
         var data = URLData.Details(
             url,
             editText.id.toString(),
-            days,
-            pages,
-            pauseFrom,
-            pauseTo
+            pages
         )
         urlData.add(data)
         editText.addTextChangedListener(object : TextWatcher {
@@ -243,7 +240,7 @@ class MainActivity : AppCompatActivity(), GoogleSheetView {
         urlData.forEach { data ->
             index++
             if (id == data.id) {
-                var newData = URLData.Details(url, id,"","","","")
+                var newData = URLData.Details(url, id,"")
                 urlData[index] = newData
             }
         }
@@ -258,7 +255,7 @@ class MainActivity : AppCompatActivity(), GoogleSheetView {
 
         googleSheet = data
         data.values.forEach { item ->
-            addURLEditText(item[0],item[1],item[2],item[3], item[4] )
+            addURLEditText(item[0],item[1])
         }
         saveUrl()
         saveFactor()

@@ -16,8 +16,10 @@ class GoogleSheetPresenterClass(var view: GoogleSheetView, var api: GoogleSheetS
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(Schedulers.newThread())
                 .subscribe({ result ->
+                    println(result)
                     view.responseGetUrl(result)
                 }, { error ->
+                    println(error)
                     view.responseGetUrlFailed("The caller does not have permission")
                 })
         )
