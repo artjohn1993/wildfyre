@@ -33,6 +33,7 @@ import kotlinx.android.synthetic.main.activity_wordpress_loader.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
+import org.jetbrains.anko.startActivity
 import java.lang.Exception
 import java.util.*
 import kotlin.collections.ArrayList
@@ -75,15 +76,14 @@ class WordpressLoaderActivity : AppCompatActivity(), WordpressView {
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        window.setFlags(WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
-            WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED
-        )
         setContentView(R.layout.activity_wordpress_loader)
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowHomeEnabled(true)
         title = ""
         bind()
+        println("onCreate in wordpress loader")
     }
 
     override fun onResume() {
@@ -93,7 +93,7 @@ class WordpressLoaderActivity : AppCompatActivity(), WordpressView {
     override fun onPause() {
         super.onPause()
         compositeDisposable.clear()
-
+        downloadingCon.visibility = View.GONE
     }
 
     override fun onStop() {
@@ -106,13 +106,13 @@ class WordpressLoaderActivity : AppCompatActivity(), WordpressView {
     }
 
     override fun onBackPressed() {
-        finish()
+        customFinish()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item?.itemId) {
             android.R.id.home -> {
-                finish()
+                customFinish()
             }
         }
         return true
@@ -225,7 +225,7 @@ class WordpressLoaderActivity : AppCompatActivity(), WordpressView {
         ).show()
 
         Handler().postDelayed({
-            finish()
+            customFinish()
         }, 10000)
     }
 
@@ -253,13 +253,18 @@ class WordpressLoaderActivity : AppCompatActivity(), WordpressView {
             var currentHour = timeToMatch[Calendar.HOUR_OF_DAY]
 
             if(currentHour == 24 || currentHour == 12 || currentHour == 6 || currentHour == 18) {
-                finish()
+                customFinish()
             } else {
                 completionHandler.invoke(db.getURL())
             }
         } else {
             completionHandler.invoke(urlData)
         }
+    }
+
+    fun customFinish() {
+        startActivity<MainActivity>()
+        finish()
     }
 
     private fun removeRecyclerView() {
@@ -278,6 +283,7 @@ class WordpressLoaderActivity : AppCompatActivity(), WordpressView {
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onUrlLoadedEvent(event: UrlLoadedEvent) {
+        timer.cancel()
         WebStorage.getInstance().deleteAllData()
         android.webkit.CookieManager.getInstance().removeAllCookies(null)
         android.webkit.CookieManager.getInstance().flush()

@@ -64,8 +64,8 @@ class MainActivity : AppCompatActivity(), GoogleSheetView {
             supportActionBar?.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM)
             supportActionBar?.setCustomView(R.layout.custom_action_bar)
             action_bar_title.setText("WILDFYRE Generator")
-            action_bar_subtitle.setText("v.20230301.1")
-            //WILDFYRE_20230301.1
+            action_bar_subtitle.setText("v.20230628.1")
+            //WILDFYRE_20230628.1
         } catch (e: PackageManager.NameNotFoundException) {
             e.printStackTrace()
         }
@@ -79,7 +79,6 @@ class MainActivity : AppCompatActivity(), GoogleSheetView {
         if (!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this);
         }
-
     }
 
     override fun onPause() {
@@ -246,13 +245,15 @@ class MainActivity : AppCompatActivity(), GoogleSheetView {
         }
     }
 
+
     override fun onBackPressed() {
         closeDialog.showDialog(this)
     }
 
     override fun responseGetUrl(data: GoogleSheet.Result) {
+        println("checking responseGetUrl")
+        println(data)
         data.values.removeAt(0)
-
         googleSheet = data
         data.values.forEach { item ->
             addURLEditText(item[0],item[1])
@@ -261,6 +262,7 @@ class MainActivity : AppCompatActivity(), GoogleSheetView {
         saveFactor()
         stopService(Intent(this,IdleChecker::class.java))
         startActivity<WordpressLoaderActivity>()
+        finish()
     }
 
     override fun responseGetUrlFailed(data: String) {

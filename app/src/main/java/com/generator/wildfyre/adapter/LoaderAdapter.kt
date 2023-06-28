@@ -39,14 +39,6 @@ class LoaderAdapter(var activity: Activity, var data: MutableList<Wordpress.Resu
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: LoaderHolder, position: Int) {
         holder.page.webViewClient = MyBrowser(activity, holder.page)
-        holder.page.apply {
-            clearHistory()
-            clearFormData()
-            clearCache(true)
-            clearSslPreferences()
-//            setLayerType(View.LAYER_TYPE_HARDWARE, null)
-        }
-
         holder.page.settings.apply {
             javaScriptEnabled = true
             setGeolocationEnabled(true)
@@ -58,9 +50,9 @@ class LoaderAdapter(var activity: Activity, var data: MutableList<Wordpress.Resu
             pluginState = WebSettings.PluginState.ON
             javaScriptCanOpenWindowsAutomatically = true
             cacheMode = WebSettings.LOAD_NO_CACHE
-            domStorageEnabled = true
-            safeBrowsingEnabled = true
-            setSupportMultipleWindows(false)
+            domStorageEnabled = false
+            safeBrowsingEnabled = false
+            setSupportMultipleWindows(true)
         }
 
         holder.page.loadUrl(data[position].link)
