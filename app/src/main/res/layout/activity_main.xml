@@ -54,7 +54,7 @@
                 android:id="@+id/googleSheetName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="nxtgen1"
+                android:text="nxtgen3"
                 />
 
             <androidx.cardview.widget.CardView
