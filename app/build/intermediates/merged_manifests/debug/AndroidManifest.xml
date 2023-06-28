@@ -35,7 +35,6 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_logo"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/Theme.WebOpener"
         android:usesCleartextTraffic="true" >
         <activity
