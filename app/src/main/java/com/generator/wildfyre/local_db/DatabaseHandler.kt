@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import com.generator.wildfyre.enum.Table
 import com.generator.wildfyre.enum.WebOpenerDB
+import com.generator.wildfyre.model.GoogleSheet
 import com.generator.wildfyre.model.RangeData
 import com.generator.wildfyre.model.URLData
 import com.generator.wildfyre.model.Wordpress
@@ -17,7 +18,6 @@ class DatabaseHandler(val context : Context) : SQLiteOpenHelper(context, WebOpen
         db?.execSQL("CREATE TABLE " + WebOpenerDB.TABLE_URL.getValue() + " (" +
                 Table.Table_Url.URL.getValue() + " VARCHAR(200)," +
                 Table.Table_Url.PAGES.getValue() + " VARCHAR(200))"
-
         )
 
         db?.execSQL("CREATE TABLE " + WebOpenerDB.TABLE_FACTOR.getValue() + " (" +
@@ -35,10 +35,26 @@ class DatabaseHandler(val context : Context) : SQLiteOpenHelper(context, WebOpen
                 Table.Table_Wordpress.GROUP.getValue() + " VARCHAR(200), " +
                 Table.Table_Wordpress.LINK.getValue() + " VARCHAR(200))"
         )
+
+        db?.execSQL("CREATE TABLE " + WebOpenerDB.TABLE_SHEET_SETTING.getValue() + " (" +
+                Table.Table_Sheet_Setting.DAY_SHEET.getValue() + " VARCHAR(100)," +
+                Table.Table_Sheet_Setting.SHEET_NAME.getValue() + " VARCHAR(100))"
+        )
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
 
+    }
+
+    fun insertSheetSettings(sheet:String, daySheet : Boolean)  : Boolean {
+        deleteDatabase(WebOpenerDB.TABLE_SHEET_SETTING.getValue())
+        val db = this.writableDatabase
+        var setting = ContentValues()
+        setting.put(Table.Table_Sheet_Setting.DAY_SHEET.getValue(), daySheet.toString())
+        setting.put(Table.Table_Sheet_Setting.SHEET_NAME.getValue(), sheet)
+        var result = db.insert(WebOpenerDB.TABLE_SHEET_SETTING.getValue(), null , setting)
+        db.close()
+        return result != (-1).toLong()
     }
 
     fun insertURL(data : URLData.Details) : Boolean {
@@ -87,7 +103,7 @@ class DatabaseHandler(val context : Context) : SQLiteOpenHelper(context, WebOpen
         return result != (-1).toLong()
     }
 
-    fun getURL() : MutableList<URLData.Details>{
+    fun getURL() : MutableList<URLData.Details> {
         val list : MutableList<URLData.Details> = ArrayList()
         val db = this.readableDatabase
         val result = db.rawQuery("SELECT * from " + WebOpenerDB.TABLE_URL.getValue(), null)
@@ -152,6 +168,22 @@ class DatabaseHandler(val context : Context) : SQLiteOpenHelper(context, WebOpen
                 data = RangeData.Result(
                         result.getString(result.getColumnIndex(Table.Table_Range.RANGE_TO_LOAD.getValue())),
                         result.getString(result.getColumnIndex(Table.Table_Range.RANGE_OF_POST.getValue()))
+                )
+            }while (result.moveToNext() )
+        }
+        db.close()
+        return data
+    }
+
+    fun getSheetSettings() : GoogleSheet.Settings? {
+        var data : GoogleSheet.Settings? = null
+        val db = this.readableDatabase
+        val result = db.rawQuery("SELECT * from " + WebOpenerDB.TABLE_SHEET_SETTING.getValue(), null)
+        if (result.moveToFirst()) {
+            do {
+                data = GoogleSheet.Settings(
+                    result.getString(result.getColumnIndex(Table.Table_Sheet_Setting.SHEET_NAME.getValue())),
+                    result.getString(result.getColumnIndex(Table.Table_Sheet_Setting.DAY_SHEET.getValue())).toBoolean()
                 )
             }while (result.moveToNext() )
         }

@@ -23,12 +23,14 @@ import com.generator.wildfyre.enum.DownloadStatus
 import com.generator.wildfyre.events.TimerEvent
 import com.generator.wildfyre.events.UrlLoadedEvent
 import com.generator.wildfyre.local_db.DatabaseHandler
+import com.generator.wildfyre.model.GoogleSheet
 import com.generator.wildfyre.model.URLData
 import com.generator.wildfyre.model.Wordpress
 import com.generator.wildfyre.presenter.WordpressPresenterClass
 import com.generator.wildfyre.presenter.WordpressView
 import com.google.android.material.snackbar.Snackbar
 import io.reactivex.disposables.CompositeDisposable
+import kotlinx.android.synthetic.main.activity_main.daySheet
 import kotlinx.android.synthetic.main.activity_wordpress_loader.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -49,6 +51,7 @@ class WordpressLoaderActivity : AppCompatActivity(), WordpressView {
     var page = 1
     var totalWordpress = 0
     var loadedWordpress = 0
+    var sheetSetting : GoogleSheet.Settings? = null
 
     private var compositeDisposable: CompositeDisposable = CompositeDisposable()
     private val apiServer by lazy {
@@ -187,10 +190,14 @@ class WordpressLoaderActivity : AppCompatActivity(), WordpressView {
         if (totalWordpress == 0 && loadedWordpress == 0) {
             title = ""
         } else if (totalWordpress <= 1) {
-            title = "Loading: ${loadedWordpress}/${totalWordpress} post"
+            title = "Loading ${processSheetName()}: ${loadedWordpress}/${totalWordpress} post"
         } else {
-            title = "Loading: ${loadedWordpress}/${totalWordpress} posts"
+            title = "Loading ${processSheetName()}: ${loadedWordpress}/${totalWordpress} posts"
         }
+    }
+
+    private fun processSheetName() : String {
+        return if(sheetSetting!!.day_sheet) CalendarData().processDaySheet() else sheetSetting!!.sheet_name
     }
 
     private fun displayWordpress() {
@@ -205,8 +212,11 @@ class WordpressLoaderActivity : AppCompatActivity(), WordpressView {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     @RequiresApi(Build.VERSION_CODES.N)
     private fun bind() {
+        sheetSetting = db.getSheetSettings()
+        downloadText.text = "Downloading ${processSheetName()}"
         setRecycler()
         urlData = db.getURL()
         if (urlData.isEmpty()) {

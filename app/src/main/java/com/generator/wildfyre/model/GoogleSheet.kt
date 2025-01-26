@@ -6,5 +6,23 @@ object GoogleSheet {
         var range : String,
         var majorDimension : String,
         var values : MutableList<MutableList<String>>
-        )
+    )
+
+    data class SheetResult (
+        var sheets : List<Sheets>
+    )
+
+    data class Sheets (
+        var properties : Properties
+    )
+
+    data class Properties(
+        var title : String,
+        var index : Int
+    )
+
+    data class Settings(
+        var sheet_name : String,
+        var day_sheet : Boolean
+    )
 }

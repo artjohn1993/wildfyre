@@ -12,4 +12,11 @@ class CalendarData {
         var finalDate = format.format(date.time)
         return finalDate
     }
+
+    fun processDaySheet() : String {
+        val calendar = Calendar.getInstance()
+        val date = calendar.time
+        val day = SimpleDateFormat("EEEE", Locale.ENGLISH).format(date.time)
+        return day
+    }
 }

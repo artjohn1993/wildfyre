@@ -6,4 +6,7 @@ interface GoogleSheetServices {
 
     @GET("")
     fun getUrl(@Url url : String) : Observable<GoogleSheet.Result>
+
+    @GET("")
+    fun getSheet(@Url url : String) : Observable<GoogleSheet.SheetResult>
 }

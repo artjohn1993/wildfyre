@@ -5,12 +5,19 @@ enum class WebOpenerDB {
     TABLE_RANGE { override fun getValue() = "Table_Range" },
     TABLE_WORDPRESS { override fun getValue() = "Table_Wordpress" },
     TABLE_URL { override fun getValue() = "Table_Url" },
-    TABLE_FACTOR { override fun getValue() = "Table_Factor" };
+    TABLE_FACTOR { override fun getValue() = "Table_Factor" },
+    TABLE_SHEET_SETTING { override fun getValue() = "Table_Sheet_Setting" };
 
     abstract fun getValue() : String
 }
 
 object Table{
+
+    enum class Table_Sheet_Setting {
+        DAY_SHEET { override fun getValue() = "day" },
+        SHEET_NAME { override fun getValue() = "sheet_name" };
+        abstract fun getValue() : String
+    }
 
     enum class Table_Factor {
         FACTOR { override fun getValue() = "factor" };

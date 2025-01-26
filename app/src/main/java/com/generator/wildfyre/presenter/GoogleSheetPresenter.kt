@@ -24,13 +24,34 @@ class GoogleSheetPresenterClass(var view: GoogleSheetView, var api: GoogleSheetS
                 })
         )
     }
+
+    override fun getSheet(url: String) {
+        compositeDisposable.add(
+            api.getSheet(url)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.newThread())
+                .subscribe({ result ->
+                    println(result)
+                    view.responseGetSheet(result)
+                }, { error ->
+                    println(error)
+                    view.responseGetSheetFailed("The caller does not have permission")
+                })
+        )
+    }
+
+
 }
 
 interface GoogleSheetPresenter {
     fun getUrl(url: String)
+    fun getSheet(url: String)
 }
 
 interface GoogleSheetView {
     fun responseGetUrl(data: GoogleSheet.Result)
     fun responseGetUrlFailed(data: String)
+
+    fun responseGetSheet(data: GoogleSheet.SheetResult)
+    fun responseGetSheetFailed(data: String)
 }

@@ -9,6 +9,9 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.view.WindowManager
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.CompoundButton
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -16,6 +19,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.generator.pog.services.IdleChecker
 import com.generator.wildfyre.R
 import com.generator.wildfyre.api.GoogleSheetApi
+import com.generator.wildfyre.data.CalendarData
 import com.generator.wildfyre.defaultSettings
 import com.generator.wildfyre.dialog.AddUrlDialog
 import com.generator.wildfyre.dialog.CloseDialog
@@ -34,19 +38,22 @@ import kotlinx.android.synthetic.main.custom_action_bar.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
-import org.jetbrains.anko.imageResource
-import org.jetbrains.anko.startActivity
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Locale
 import kotlin.collections.ArrayList
 
 
-class MainActivity : AppCompatActivity(), GoogleSheetView {
+class MainActivity : AppCompatActivity(), GoogleSheetView, AdapterView.OnItemSelectedListener {
     var db = DatabaseHandler(this)
     var urlData: MutableList<URLData.Details> = ArrayList()
     var total = 0
+    val BASE_URL = "https://sheets.googleapis.com/"
     var closeDialog = CloseDialog()
     lateinit var urlCheckerDialog: UrlCheckerDialog
     var googleSheet : GoogleSheet.Result? = null
-
+    var sheetName = ArrayList<String>()
+    var selectedSheetIndex : Int =  0
     private var compositeDisposable: CompositeDisposable = CompositeDisposable()
     private val apiServer by lazy {
         GoogleSheetApi.create(this)
@@ -89,7 +96,7 @@ class MainActivity : AppCompatActivity(), GoogleSheetView {
 
     override fun onResume() {
         super.onResume()
-        start.imageResource = R.drawable.round_play_button
+        start.setImageResource(R.drawable.round_play_button)
         startService(Intent(this, IdleChecker::class.java))
     }
 
@@ -99,7 +106,17 @@ class MainActivity : AppCompatActivity(), GoogleSheetView {
     }
 
     private fun bind() {
+        getSheetName()
         setClickEvent()
+        setCheckboxListener()
+    }
+
+    private fun setCheckboxListener() {
+        daySheet.setOnCheckedChangeListener(object : CompoundButton.OnCheckedChangeListener {
+            override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {
+                sheetNameCon.visibility = if(isChecked) View.GONE else View.VISIBLE
+            }
+        })
     }
 
     private fun setClickEvent() {
@@ -111,7 +128,7 @@ class MainActivity : AppCompatActivity(), GoogleSheetView {
         }
 
         start.setOnClickListener {
-            start.imageResource = R.drawable.pause
+            start.setImageResource(R.drawable.pause)
             checkDataBase()
         }
 
@@ -171,8 +188,36 @@ class MainActivity : AppCompatActivity(), GoogleSheetView {
     }
 
     private fun checkURL() {
-        presenter.getUrl("https://sheets.googleapis.com/v4/spreadsheets/${googleSheetID.text}/values/${googleSheetName.text}?dateTimeRenderOption=FORMATTED_STRING&majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&key=AIzaSyAdETbAw9fqHW5wCv5Hnipoc1kvGmCEfoA")
+        db.insertSheetSettings(sheetName[selectedSheetIndex], daySheet.isChecked) // save the sheet settings
+        presenter.getUrl("${BASE_URL}v4/spreadsheets/${googleSheetID.text}/values/${processSheetName()}?dateTimeRenderOption=FORMATTED_STRING&majorDimension=ROWS&valueRenderOption=FORMATTED_VALUE&key=AIzaSyAdETbAw9fqHW5wCv5Hnipoc1kvGmCEfoA")
     }
+
+    private fun getSheetName() {
+        presenter.getSheet("${BASE_URL}v4/spreadsheets/${googleSheetID.text}?key=AIzaSyAdETbAw9fqHW5wCv5Hnipoc1kvGmCEfoA")
+    }
+
+    private fun processSheetSetting() {
+        var data = db.getSheetSettings()
+
+        if (data != null) {
+            daySheet.isChecked = data.day_sheet
+
+            //set the default value of spinner sheet
+            sheetName.forEachIndexed { index, element ->
+                if (element == data.sheet_name) {
+                    googleSheetNameSpinner.setSelection(index)
+                }
+            }
+        }
+    }
+
+    private fun createDropdownSheet() {
+        var arrayAdapter = ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item, sheetName)
+        googleSheetNameSpinner.adapter = arrayAdapter
+        googleSheetNameSpinner.onItemSelectedListener = this
+        processSheetSetting()
+    }
+
 
     private fun addURLEditText(url: String?, pages:String = "") {
         addURL.text = "add URL (${++total})"
@@ -246,6 +291,11 @@ class MainActivity : AppCompatActivity(), GoogleSheetView {
         }
     }
 
+    private fun processSheetName() : String {
+        return if(daySheet.isChecked) CalendarData().processDaySheet() else sheetName[selectedSheetIndex]
+    }
+
+
     override fun onBackPressed() {
         closeDialog.showDialog(this)
     }
@@ -260,10 +310,23 @@ class MainActivity : AppCompatActivity(), GoogleSheetView {
         saveUrl()
         saveFactor()
         stopService(Intent(this,IdleChecker::class.java))
-        startActivity<WordpressLoaderActivity>()
+
+        startActivity(Intent(this, WordpressLoaderActivity::class.java))
     }
 
     override fun responseGetUrlFailed(data: String) {
+
+    }
+
+    override fun responseGetSheet(data: GoogleSheet.SheetResult) {
+            // filter the sheet name and store in array for spinner
+            data.sheets.forEach { item ->
+                sheetName.add(item.properties.title)
+            }
+            createDropdownSheet()
+    }
+
+    override fun responseGetSheetFailed(data: String) {
 
     }
 
@@ -275,6 +338,14 @@ class MainActivity : AppCompatActivity(), GoogleSheetView {
     @Subscribe(threadMode = ThreadMode.MAIN)
     fun onIdleCheckerEvent(event: IdleCheckerEvent) {
         checkDataBase()
+    }
+
+    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+        selectedSheetIndex = position
+    }
+
+    override fun onNothingSelected(parent: AdapterView<*>?) {
+
     }
 
 
